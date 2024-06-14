@@ -1,14 +1,74 @@
-# Welcome to your CDK TypeScript project
+# Building and Deploying AWS Lambda Functions with TypeScript and AWS CDK
 
-This is a blank project for CDK development with TypeScript.
+This guide explains how to build and deploy AWS Lambda functions using TypeScript and AWS CDK.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Prerequisites
 
-## Useful commands
+Before you begin, ensure you have the following installed:
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+- Node.js and npm
+- AWS CLI configured with necessary permissions
+- AWS CDK
+- TypeScript
+
+## Steps
+
+### 1. Clone the Repository
+
+Clone the repository containing your AWS CDK project.
+
+```sh
+git clone <repository-url>
+cd <project-directory>
+```
+
+###  2. Install Dependencies
+Install the required dependencies for your AWS CDK project.
+
+```sh
+npm install
+```
+
+### 3. Configure AWS CDK
+Configure your AWS CDK environment if not already configured.
+
+
+```sh
+
+cdk bootstrap aws://<AWS-account-id>/<AWS-region>
+Replace <AWS-account-id> and <AWS-region> with your AWS account ID and preferred AWS region.
+```
+
+### 4. Update Lambda Handlers
+Update your Lambda handler files in the lambda/ directory. Ensure they have the correct import statements, parameter types, and logic to handle requests.
+
+### 5. Build TypeScript Code
+Build your TypeScript code to generate JavaScript files.
+
+```sh
+npm run build
+```
+
+### 6. Synthesize AWS CDK Stack
+Synthesize your AWS CDK stack to generate the CloudFormation template.
+
+```sh
+cdk synth
+```
+
+### 7. Deploy AWS CDK Stack
+Deploy your AWS CDK stack to create or update resources on AWS.
+
+```sh
+cdk deploy
+```
+
+Follow the prompts to confirm the deployment. Once deployed, AWS CDK will create or update your Lambda functions and associated resources in AWS.
+
+Additional Notes
+Update the BUCKET_NAME environment variable in your Lambda handlers to match your S3 bucket name.
+Ensure your AWS credentials are properly configured for deployment.
+Review AWS CDK documentation for advanced configurations and options.
+**Happy coding!**
+
+

@@ -5,17 +5,20 @@
     "daily_file_manager": "bin/daily_file_manager.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && esbuild lambda/*.ts --bundle --platform=node --outdir=dist/lambda",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.138",
+    "@types/aws-sdk": "^2.7.0",
     "@types/jest": "^29.5.12",
     "@types/node": "20.12.7",
+    "aws-cdk": "2.139.0",
+    "esbuild": "^0.21.5",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
-    "aws-cdk": "2.139.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5"
   },
